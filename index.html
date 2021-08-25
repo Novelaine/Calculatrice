@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <style>
+        body{
+            text-align: center;
+            margin-top: 200px;
+        }
+        p{
+            display: inline;
+        }
+        div {
+            display: none;
+            background-color: rgb(175, 166, 166);
+            text-align: center;
+            width: 1000px;
+            height: 100px;
+            margin: auto;
+            padding-top: 70px;
+        }
+        section{
+            border: 5px rgb(175, 166, 166) solid;
+            width: 1000px;
+            height: 100px;
+            margin: auto;
+            padding-top: 70px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+    <p>Faire apparaître la calculatrice</p>
+    <p>- Faire disparaitre la calculatrice</p>
+    <div>
+            <form>
+                
+                <input type="number" id="champs1">
+                <select>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+                <input type="number" id="champs2">
+                <span>Calculer</span>
+            
+            </form>
+    </div>
+</section>
+    
+
+
+
+<script>
+    var apparaitre = document.getElementsByTagName('p')[0];
+    console.log(apparaitre);
+    var maDiv = document.getElementsByTagName('div');
+    console.log(maDiv);
+    var disparaitre = document.getElementsByTagName('p')[1];
+    console.log(disparaitre);
+    var champs1 = document.getElementById('champs1');
+    console.log(champs1);
+    var champs2 = document.getElementById('champs2');
+    console.log(champs2);
+    var calculer = document.getElementsByTagName('span')[0];
+    console.log(calculer);
+    var select = document.getElementsByTagName('select')[0];
+    console.log(select);
+    var section = document.getElementsByTagName('section');
+    console.log(section);
+
+
+    apparaitre.addEventListener('click', apparition);
+    disparaitre.addEventListener('click', disparition);
+    calculer.addEventListener('click', calcul);
+    
+
+
+    function apparition() {
+        console.log('la fonction demarre');
+
+            maDiv[0].style.display = 'block';
+            section[0].style.height = "300px";
+    }
+
+    function disparition() {
+        console.log('la fonction demarre aussi');
+
+            maDiv[0].style.display = 'none';
+            section[0].style.height = "100px";
+    }
+
+        function calcul() {
+        console.log('je peux calculer');
+        var premier = parseInt(champs1.value);
+        console.log(premier);
+        var deuxieme = parseInt(champs2.value);
+        console.log(deuxieme);
+        
+        if (select.value === '+') {
+            var resultat = premier + deuxieme;
+        } else if (select.value === '-') {
+            var resultat = premier - deuxieme;
+        } else if (select.value === '*') {
+            var resultat = premier * deuxieme;
+        } else if (select.value === '/') {
+            var resultat = premier / deuxieme;
+        }
+        
+        alert(premier + select.value + deuxieme + '=' + resultat);
+    }
+
+ 
+</script>
+
+</body>
+</html>
